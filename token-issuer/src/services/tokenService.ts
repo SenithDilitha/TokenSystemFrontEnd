@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/tokens';
+const API_URL = 'http://localhost:5000/';
 
 export interface Token {
   id: number;
@@ -12,7 +12,7 @@ export interface Token {
 
 export const issueToken = async (clientName: string, serviceCategory: string): Promise<Token> => {
   try {
-    const response = await axios.get<Token>(`${API_URL}/issue-token`, {
+    const response = await axios.get<Token>(`${API_URL}api/tokens/issue-token`, {
       params: { clientName, serviceCategory },
     });
     return response.data;
